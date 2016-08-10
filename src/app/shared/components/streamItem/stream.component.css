@@ -1,0 +1,40 @@
+.stream-item {
+    width: 320px;
+    height: 235px;
+    margin: auto;
+    position: relative;
+}
+.stream-item .logo {
+    cursor: pointer;
+    height: 185px;
+    margin: auto;
+}
+.stream-item .gameLogo {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.stream-item .meta {
+    line-height: 17px;
+    font-size: 14px;
+    color: #322f37;
+}
+.stream-item .title {
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.stream-item .title:hover {
+    text-decoration: underline;
+}
+.stream-item .info {
+    font-size: 12px;
+    color: #706a7c;
+}
+.stream-item .info span {
+    cursor: pointer;
+    text-decoration: underline;
+}

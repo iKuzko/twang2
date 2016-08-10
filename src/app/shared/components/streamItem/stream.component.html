@@ -1,0 +1,14 @@
+<div class="col-lg-3">
+    <div class="stream-item">
+        <div class="logo" (click)="onStreamSelect()">
+            <img [src]="streamItem.preview.medium" [alt]="streamItem.channel.status" [title]="streamItem.channel.status" />
+        </div>
+        <div *ngIf="gameInfo" class="gameLogo" (click)="onGameSelect()">
+            <img [src]="gameInfo.box.small" [alt]="gameInfo.name" [title]="gameInfo.name" />
+        </div>
+        <div class="meta">
+            <div class="title" (click)="onStreamSelect()">{{streamItem.channel.status}}</div>
+            <div class="info">{{streamItem.viewers}} viewers on <span (click)="onChannelSelect()">{{streamItem.channel.display_name}}</span></div>
+        </div>
+    </div>
+</div>

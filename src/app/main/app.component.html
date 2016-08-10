@@ -1,0 +1,30 @@
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <button (click)="login()" type="button" class="btn btn-default navbar-btn" >Sign in</button>
+            </li>
+            <li>
+                <a routerLink="/games" routerLinkActive="active">Games</a>
+            </li>
+            <li>
+                <a routerLink="/channels" routerLinkActive="active">Channels</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <router-outlet></router-outlet>
+                    <a style="display: none;" href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->

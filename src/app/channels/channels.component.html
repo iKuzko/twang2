@@ -1,0 +1,8 @@
+<div *ngIf="channels" class="channels-list">
+    <div class="row">
+        <h2>All Channels</h2>
+    </div>
+    <div class="row">
+        <stream *ngFor="let item of channels" [stream]="item" [game]="true"></stream>
+    </div>
+</div>

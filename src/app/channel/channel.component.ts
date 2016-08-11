@@ -18,6 +18,7 @@ export class ChannelComponent implements OnInit {
     private stream;
     private streamUrl;
     private streamChatUrl;
+    private videoId;
     constructor(
         private dataService: DataService,
         private route: ActivatedRoute,
@@ -28,8 +29,11 @@ export class ChannelComponent implements OnInit {
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.userName = params['userName'];
-            if (this.userName) {
-                this.streamUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://player.twitch.tv/?channel='+this.userName);
+            this.videoId = params['videoId'];
+            console.log('id', params);
+            if (this.videoId || this.userName) {
+                let url = this.videoId ? `http://player.twitch.tv/?video=v${this.videoId}` : `http://player.twitch.tv/?channel=${this.userName}`;
+                this.streamUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
                 this.streamChatUrl = this.sanitizer.bypassSecurityTrustResourceUrl('http://www.twitch.tv/'+this.userName+'/chat');
                 this.dataService.getStreamByName(this.userName).subscribe(stream => this.stream = stream.stream);
             }

@@ -22,7 +22,7 @@ export class VideoComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        console.log(this.videoItem);
+        // console.log(this.videoItem);
         let gamesData = this.cacheService.getCacheData('gamesData');
         if (gamesData && gamesData[this.videoItem['game']]) {
             this.gameInfo = gamesData[this.videoItem['game']];
@@ -30,12 +30,16 @@ export class VideoComponent implements OnInit {
         this.formatLength(this.videoItem.length);
     }
 
-    onChannelSelect(stream) {
-        this.router.navigate(['/profile', stream.name]);
+    onChannelSelect() {
+        this.router.navigate(['/profile', this.videoItem.channel.name]);
     }
 
-    onVideoSelect(stream) {
-        this.router.navigate(['/channel', stream.name]);
+    onVideoSelect() {
+        this.router.navigate(['/channel', this.videoItem.channel.name, '/v', this.videoItem._id.substring(1)]);
+    }
+
+    onGameSelect() {
+        this.router.navigate(['/games', encodeURIComponent(this.gameInfo.name)]);
     }
 
     formatLength(time = 0) {

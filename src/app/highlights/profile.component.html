@@ -1,0 +1,20 @@
+<div *ngIf="channelData">
+    <div *ngIf="channelData.profile_banner" class="col-lg-12 channel-banner" [style.background-image]="'url('+channelData.profile_banner+')'" ></div>
+</div>
+
+<div class="row" style="padding: 10px 0">
+    <ul class="nav nav-tabs">
+        <li *ngIf="videoBroadcastData" role="presentation">
+            <a (click)="selectVideoSection('broadcasts')" href="#">Broadcasts</a>
+        </li>
+        <li *ngIf="videoHighlightData" role="presentation" class="active">
+            <a (click)="selectVideoSection('highlights')" href="#">Highlights</a>
+        </li>
+    </ul>
+</div>
+
+<div class="row">
+    <div *ngIf="videoHighlightData">
+        <video-item *ngFor="let item of videoHighlightData" [video]="item"></video-item>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="col-lg-3">
     <div class="video-item">
-        <div class="logo" (click)="onVideoSelect(videoItem.channel)">
+        <div class="logo" (click)="onVideoSelect()">
             <img [src]="videoItem.preview" [alt]="videoItem.title" [title]="videoItem.title" />
             <div class="views"><span class="glyphicon glyphicon-eye-open"></span> {{videoItem.views}}</div>
             <div class="time"><span class="glyphicon glyphicon-time"></span> {{videoLength}}</div>
@@ -9,10 +9,10 @@
             <img [src]="gameInfo.box.small" [alt]="gameInfo.name" [title]="gameInfo.name" />
         </div>
         <div class="meta">
-            <div class="title" (click)="onVideoSelect(videoItem.channel)">{{videoItem.title}}</div>
+            <div class="title" (click)="onVideoSelect()">{{videoItem.title}}</div>
             <div class="info">
                 <div class="description">{{videoItem.description || 'No description'}}</div>
-                {{videoItem.created_at | date}} - <span (click)="onChannelSelect(videoItem.channel)">{{videoItem.channel.display_name}}</span>
+                {{videoItem.created_at | date}} - <span (click)="onChannelSelect()">{{videoItem.channel.display_name}}</span>
             </div>
         </div>
     </div>

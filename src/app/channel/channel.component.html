@@ -1,6 +1,6 @@
 <div *ngIf="streamUrl">
     <div class="row">
         <iframe [src]="streamUrl" height="720" width="1280" frameborder="0" scrolling="no" allowfullscreen="true"> </iframe>
-        <iframe [src]="streamChatUrl" height="720" width="300" frameborder="0" scrolling="no" id="chat_embed" ></iframe>
+        <iframe *ngIf="!videoId" [src]="streamChatUrl" height="720" width="300" frameborder="0" scrolling="no" id="chat_embed" ></iframe>
     </div>
 </div>

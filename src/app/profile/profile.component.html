@@ -14,12 +14,12 @@
 </div>
 <div class="row" [style.display]="videoSection === 'broadcasts' ? 'block' : 'none'">
     <div *ngIf="videoBroadcastData">
-        <video-item *ngFor="let item of videoBroadcastData" [video]="item"></video-item>
+        <video-item *ngFor="let item of videoBroadcastData" [video]="item" [game]="true"></video-item>
     </div>
 </div>
 <div class="row" [style.display]="videoSection === 'highlights' ? 'block' : 'none'">
     <div *ngIf="videoHighlightData">
-        <video-item *ngFor="let item of videoHighlightData" [video]="item"></video-item>
+        <video-item *ngFor="let item of videoHighlightData" [video]="item" [game]="true"></video-item>
     </div>
 </div>
 

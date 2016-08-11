@@ -14,6 +14,8 @@ import {CacheService} from "../../services/cacheService";
 })
 export class VideoComponent implements OnInit {
     @Input('video') videoItem: any;
+    @Input('game') gameLink: any;
+
     private videoLength;
     private gameInfo;
     constructor(
@@ -23,9 +25,11 @@ export class VideoComponent implements OnInit {
 
     ngOnInit() {
         // console.log(this.videoItem);
-        let gamesData = this.cacheService.getCacheData('gamesData');
-        if (gamesData && gamesData[this.videoItem['game']]) {
-            this.gameInfo = gamesData[this.videoItem['game']];
+        if(this.gameLink) {
+            let gamesData = this.cacheService.getCacheData('gamesData');
+            if (gamesData && gamesData[this.videoItem['game']]) {
+                this.gameInfo = gamesData[this.videoItem['game']];
+            }
         }
         this.formatLength(this.videoItem.length);
     }
@@ -39,7 +43,7 @@ export class VideoComponent implements OnInit {
     }
 
     onGameSelect() {
-        this.router.navigate(['/games', encodeURIComponent(this.gameInfo.name)]);
+        this.router.navigate(['/games', encodeURIComponent(this.gameInfo.name), '/videos/week']);
     }
 
     formatLength(time = 0) {

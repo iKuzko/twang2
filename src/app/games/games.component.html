@@ -17,11 +17,30 @@
     </div>
 </div>
 
-<div *ngIf="gameStreams" class="stream-list">
+<div *ngIf="gameName" class="stream-list">
     <div class="row">
         <h2>{{gameName}}</h2>
     </div>
-    <div class="row">
-        <stream *ngFor="let item of gameStreams" [stream]="item"></stream>
+    <div class="row" style="padding: 10px 0">
+        <ul class="nav nav-tabs">
+            <li *ngIf="gameStreams" role="presentation" [class.active]="gamesSection === 'streams'">
+                <a (click)="selectGamesSection('streams')" href="#">Streams</a>
+            </li>
+            <li *ngIf="gameVideos" role="presentation" [class.active]="gamesSection === 'videos'">
+                <a (click)="selectGamesSection('videos')" href="#">Videos</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row" [style.display]="gamesSection === 'streams' ? 'block' : 'none'">
+        <div *ngIf="gameStreams">
+            <stream *ngFor="let item of gameStreams" [stream]="item"></stream>
+        </div>
+    </div>
+    <div class="row" [style.display]="gamesSection === 'videos' ? 'block' : 'none'">
+        <div *ngIf="gameVideos">
+            <video-item *ngFor="let item of gameVideos" [video]="item"></video-item>
+        </div>
     </div>
 </div>
+
+

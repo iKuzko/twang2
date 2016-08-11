@@ -13,6 +13,7 @@ export class DataService {
     private streamByNameUrl = 'https://api.twitch.tv/kraken/streams/';
     private userProfileUrl = 'https://api.twitch.tv/kraken/users/';
     private channelByNameUrl = 'https://api.twitch.tv/kraken/channels/';
+    private videosByGameUrl = 'https://api.twitch.tv/kraken/videos/top';
 
     constructor(private http: Http) {}
 
@@ -60,5 +61,9 @@ export class DataService {
 
     getUserProfile(userName:any) {
         return this.getFunc(this.userProfileUrl+userName).map((res: Response) => res.json());
+    }
+
+    getVideosByGame(gameName:string, videoPeriod:string = 'week', limit: number = 28) {
+        return this.getFunc(`https://api.twitch.tv/kraken/videos/top?game=${gameName}&period=${videoPeriod}&limit=${limit}`).map((res: Response) => res.json());
     }
 }

@@ -15,7 +15,7 @@ const routes: RouterConfig = [
     { path: 'oauth', component: OauthComponent },
     { path: 'games', component: GamesComponent },
     { path: 'games/:gameName', component: GamesComponent },
-    { path: 'games/:gameName/videos', component: GamesComponent },
+    { path: 'games/:gameName/videos/:period', component: GamesComponent },
     { path: 'channels', component: ChannelsComponent },
     { path: 'channel/:userName', component: ChannelComponent },
     { path: 'channel/:userName/v/:videoId', component: ChannelComponent },
